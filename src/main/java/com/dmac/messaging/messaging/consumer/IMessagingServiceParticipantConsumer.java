@@ -1,0 +1,52 @@
+package com.dmac.messaging.messaging.consumer;
+
+import java.io.IOException;
+
+import com.dmac.messaging.common.RabbitMQDataFlowException;
+import com.dmac.messaging.vo.IPROMessage;
+import com.dmac.messaging.vo.IPROParticipant;
+import com.sun.istack.internal.NotNull;
+
+/**
+*
+*
+* @author <a href="mailto:aravindh.chinnasamy@mobax.com">Aravindh Chinnasamy</a>
+* @version %I%, %G%
+* @since 1.0
+*/
+public interface IMessagingServiceParticipantConsumer {
+	
+	/**
+	 * 
+	 * The participant that needs to be binded to the queue
+	 * 
+	 * @param participant The IPROParticipant to be binded
+	 */
+	public void 		bindToPartipantQueue(@NotNull IPROParticipant participant) throws IOException, InterruptedException;
+	
+	/**
+	 * 
+	 * @param topicQueueName
+	 * @return IPROMessage
+	 */
+	public IPROMessage 	receiveMessage() throws RabbitMQDataFlowException;
+	
+	/**
+	 * Returns true if participant is bound to queue else returns false.
+	 * 
+	 * @param queueName
+	 * @return boolean
+	 */
+	public boolean 		isParticipantBoundToQueue(String queueName);
+	
+	
+	/**
+	 * Unbind the participant from the queue and delete the queue
+	 */
+	public void			expungeParticipant() throws IOException; 		
+	
+	/**
+	 * Unbind the participant
+	 */
+	public void 		effaceParticipant();
+}
