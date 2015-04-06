@@ -6,9 +6,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.dmac.async.messaging.function.IPROMessageToByteEncoderFunction;
 import com.dmac.async.vo.IPROMessage;
-import com.rabbitmq.client.AMQP.Channel;
-import com.rabbitmq.client.AMQP.Connection;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.MessageProperties;
 
 
 

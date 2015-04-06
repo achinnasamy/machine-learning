@@ -1,8 +1,12 @@
-package com.dmac.messaging.messaging.producer;
+package com.dmac.async.messaging.producer;
 
-import com.ipro.client.MessagingServerType;
-import com.ipro.common.conditions.NotNull;
-import com.iprogames.util.constraints.Conditions;
+import com.dmac.async.client.MessagingServerType;
+import com.equator.common.constraints.Conditions;
+import com.equator.common.constraints.annotations.NotNull;
+
+
+
+
 
 /**
 *

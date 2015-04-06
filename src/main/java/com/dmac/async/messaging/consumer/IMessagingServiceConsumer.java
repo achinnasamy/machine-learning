@@ -1,6 +1,7 @@
 package com.dmac.async.messaging.consumer;
 
 import com.dmac.async.vo.IPROMessage;
+import com.equator.common.constraints.annotations.NotNull;
 
 
 

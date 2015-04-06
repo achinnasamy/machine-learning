@@ -9,10 +9,12 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.Priority;
 
 import com.dmac.async.messaging.RABBITMQ_EXHANGE_TYPE;
+import com.dmac.async.messaging.function.ByteToIPROMessageDecoderFunction;
 import com.dmac.async.messaging.producer.IMessagingServiceProducer;
+import com.dmac.async.messaging.producer.RabbitMQMessagingServiceParticipantProducer;
 import com.dmac.async.vo.IPROMessage;
 import com.dmac.async.vo.IPROParticipant;
-import com.dmac.messaging.messaging.producer.RabbitMQMessagingServiceParticipantProducer;
+import com.equator.common.constraints.annotations.NotNull;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.QueueingConsumer;
 

@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import com.dmac.messaging.vo.IPROMessage;
-import com.dmac.messaging.vo.IPROParticipant;
+import com.dmac.async.vo.IPROMessage;
+import com.dmac.async.vo.IPROParticipant;
+import com.equator.common.constraints.Conditions;
 import com.google.common.base.Function;
-import com.iprogames.util.constraints.Conditions;
 
 /**
 *
 *
-* @author <a href="mailto:aravindh.chinnasamy@mobax.com">Aravindh Chinnasamy</a>
+* @author <a href="mailto:aravindh.chinnasamy@gmail.com">Aravindh Chinnasamy</a>
 * @version %I%, %G%
 * @since 1.0
 */

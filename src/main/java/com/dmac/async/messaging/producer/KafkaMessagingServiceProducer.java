@@ -4,6 +4,12 @@ package com.dmac.async.messaging.producer;
 
 import java.util.Properties;
 
+import com.dmac.async.messaging.function.IPROMessageToByteEncoderFunction;
+import com.dmac.async.util.MessagingUtil;
+import com.dmac.async.vo.IPROMessage;
+import com.equator.common.constraints.Conditions;
+import com.equator.common.constraints.annotations.NotNull;
+
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;

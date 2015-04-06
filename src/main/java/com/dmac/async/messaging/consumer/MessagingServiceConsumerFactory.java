@@ -1,7 +1,8 @@
 package com.dmac.async.messaging.consumer;
 
 import com.dmac.async.client.MessagingServerType;
-import com.dmac.messaging.messaging.consumer.RabbitMQMessagingGroupConsumer;
+import com.equator.common.constraints.Conditions;
+import com.equator.common.constraints.annotations.NotNull;
 
 
 

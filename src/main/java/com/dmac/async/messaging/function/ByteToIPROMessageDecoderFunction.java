@@ -11,6 +11,7 @@ import org.apache.avro.reflect.ReflectData;
 import org.apache.avro.reflect.ReflectDatumReader;
 
 import com.dmac.async.vo.IPROMessage;
+import com.equator.common.constraints.Conditions;
 
 
 /**

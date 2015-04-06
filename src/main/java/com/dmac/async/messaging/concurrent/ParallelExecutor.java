@@ -11,6 +11,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.FutureTask;
 
+import com.equator.common.constraints.Conditions;
+import com.equator.common.constraints.annotations.NotNull;
 import com.google.common.base.Function;
 
 public class ParallelExecutor {
@@ -18,74 +20,30 @@ public class ParallelExecutor {
 	
 	public static void execute() {
 		
-		FutureTask<IPROMessage> futureTask1 = new FutureTask<IPROMessage>(new Callable<IPROMessage>() {
-
-			@Override
-			public IPROMessage  call() throws Exception {
-				
-				List<IPROParticipant> listOfParticipants = new ArrayList<IPROParticipant>();
-				listOfParticipants.add(new IPROParticipant("PGAM26"));
-				listOfParticipants.add(new IPROParticipant("PGAM27"));
-				listOfParticipants.add(new IPROParticipant("PGAM28"));
-				listOfParticipants.add(new IPROParticipant("PGAM29"));
-				listOfParticipants.add(new IPROParticipant("PGAM20"));
-				
-				IPROMessage iproMessage = new IPROMessage("GAM2", "", "GAM2 -  ", listOfParticipants);
-						
-				IMessagingServiceProducer iMessagingServiceProducer = new RabbitMQMessagingServiceGroupProducer();		
-				iMessagingServiceProducer.send(iproMessage);
-				return iproMessage;
-			}
-            
-        });
-		
-		FutureTask<IPROMessage> futureTask2 = new FutureTask<IPROMessage>(new Callable<IPROMessage>() {
-
-			@Override
-			public IPROMessage  call() throws Exception {
-				
-				List<IPROParticipant> listOfParticipants = new ArrayList<IPROParticipant>();
-				listOfParticipants.add(new IPROParticipant("PGAM26"));
-				listOfParticipants.add(new IPROParticipant("PGAM27"));
-				listOfParticipants.add(new IPROParticipant("PGAM28"));
-				listOfParticipants.add(new IPROParticipant("PGAM29"));
-				listOfParticipants.add(new IPROParticipant("PGAM20"));
-				
-				IPROMessage iproMessage = new IPROMessage("GAM2", "", "GAM2 -  ", listOfParticipants);
-						
-				IMessagingServiceProducer iMessagingServiceProducer = new RabbitMQMessagingServiceGroupProducer();		
-				iMessagingServiceProducer.send(iproMessage);
-				return iproMessage;
-			}
-            
-        });
-		
-		FutureTask<IPROMessage> futureTask3 = new FutureTask<IPROMessage>(new Callable<IPROMessage>() {
-
-			@Override
-			public IPROMessage  call() throws Exception {
-				
-				List<IPROParticipant> listOfParticipants = new ArrayList<IPROParticipant>();
-				listOfParticipants.add(new IPROParticipant("PGAM26"));
-				listOfParticipants.add(new IPROParticipant("PGAM27"));
-				listOfParticipants.add(new IPROParticipant("PGAM28"));
-				listOfParticipants.add(new IPROParticipant("PGAM29"));
-				listOfParticipants.add(new IPROParticipant("PGAM20"));
-				
-				IPROMessage iproMessage = new IPROMessage("GAM2", "", "GAM2 -  ", listOfParticipants);
-						
-				IMessagingServiceProducer iMessagingServiceProducer = new RabbitMQMessagingServiceGroupProducer();		
-				iMessagingServiceProducer.send(iproMessage);
-				return iproMessage;
-			}
-            
-        });
-	
-		ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-		executor.execute(futureTask1);
-		executor.execute(futureTask2);
-		executor.execute(futureTask3);
-		executor.shutdown();
+//		FutureTask<IPROMessage> futureTask3 = new FutureTask<IPROMessage>(new Callable<IPROMessage>() {
+//
+//			@Override
+//			public IPROMessage  call() throws Exception {
+//				
+//				List<IPROParticipant> listOfParticipants = new ArrayList<IPROParticipant>();
+//				listOfParticipants.add(new IPROParticipant("PGAM26"));
+//				listOfParticipants.add(new IPROParticipant("PGAM27"));
+//				listOfParticipants.add(new IPROParticipant("PGAM28"));
+//				listOfParticipants.add(new IPROParticipant("PGAM29"));
+//				listOfParticipants.add(new IPROParticipant("PGAM20"));
+//				
+//				IPROMessage iproMessage = new IPROMessage("GAM2", "", "GAM2 -  ", listOfParticipants);
+//						
+//				IMessagingServiceProducer iMessagingServiceProducer = new RabbitMQMessagingServiceGroupProducer();		
+//				iMessagingServiceProducer.send(iproMessage);
+//				return iproMessage;
+//			}
+//            
+//        });
+//	
+//		ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+//		executor.execute(futureTask3);
+//		executor.shutdown();
 	}
 	
 	public static void main(String[] args) {

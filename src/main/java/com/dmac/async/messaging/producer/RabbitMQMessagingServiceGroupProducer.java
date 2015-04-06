@@ -1,10 +1,12 @@
-package com.dmac.messaging.messaging.producer;
+package com.dmac.async.messaging.producer;
+
+
 
 import java.io.IOException;
 
-import com.ipro.messaging.RABBITMQ_EXHANGE_TYPE;
-import com.ipro.messaging.function.IPROMessageToByteEncoderFunction;
-import com.ipro.vo.IPROMessage;
+import com.dmac.async.messaging.RABBITMQ_EXHANGE_TYPE;
+import com.dmac.async.messaging.function.IPROMessageToByteEncoderFunction;
+import com.dmac.async.vo.IPROMessage;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.MessageProperties;

@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.iprogames.util.constraints.Conditions;
+import com.equator.common.constraints.Conditions;
+
 
 /**
 * A singleton container to hold in all the GROUP TOPICS
