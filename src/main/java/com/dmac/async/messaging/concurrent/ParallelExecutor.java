@@ -5,11 +5,7 @@ package com.dmac.async.messaging.concurrent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.FutureTask;
 
 import com.equator.common.constraints.Conditions;
 import com.equator.common.constraints.annotations.NotNull;
@@ -17,37 +13,30 @@ import com.google.common.base.Function;
 
 public class ParallelExecutor {
 
-	
-	public static void execute() {
 		
-//		FutureTask<IPROMessage> futureTask3 = new FutureTask<IPROMessage>(new Callable<IPROMessage>() {
-//
-//			@Override
-//			public IPROMessage  call() throws Exception {
-//				
-//				List<IPROParticipant> listOfParticipants = new ArrayList<IPROParticipant>();
-//				listOfParticipants.add(new IPROParticipant("PGAM26"));
-//				listOfParticipants.add(new IPROParticipant("PGAM27"));
-//				listOfParticipants.add(new IPROParticipant("PGAM28"));
-//				listOfParticipants.add(new IPROParticipant("PGAM29"));
-//				listOfParticipants.add(new IPROParticipant("PGAM20"));
-//				
-//				IPROMessage iproMessage = new IPROMessage("GAM2", "", "GAM2 -  ", listOfParticipants);
-//						
-//				IMessagingServiceProducer iMessagingServiceProducer = new RabbitMQMessagingServiceGroupProducer();		
-//				iMessagingServiceProducer.send(iproMessage);
-//				return iproMessage;
-//			}
-//            
-//        });
-//	
-//		ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-//		executor.execute(futureTask3);
-//		executor.shutdown();
-	}
-	
 	public static void main(String[] args) {
-		ParallelExecutor.execute();
+		
+		List<String> listOfStrings = new ArrayList<String>();
+		listOfStrings.add("Relevance");
+		listOfStrings.add("lab");
+		listOfStrings.add("does");
+		listOfStrings.add("good");
+		listOfStrings.add("on");
+		listOfStrings.add("scholastic");
+		listOfStrings.add("products");
+		listOfStrings.add("and");
+		listOfStrings.add("also");
+		listOfStrings.add("in");
+		listOfStrings.add("Dev");
+		listOfStrings.add("Ops");
+		listOfStrings.add("with");
+		listOfStrings.add("RL");
+		listOfStrings.add("Catalyst");
+		listOfStrings.add("Product");
+		
+		List<String> outList = ParallelExecutor.transform(listOfStrings, new StringAppenderFunction());
+		
+		outList.forEach((z) -> System.out.println(z));
 	}
 	
 	 public static <X, Y> List<Y> transform (@NotNull final List<X> inputList,
@@ -84,4 +73,12 @@ public class ParallelExecutor {
 	  
      }
 
+}
+
+class StringAppenderFunction implements Function<String, String> {
+
+	@Override
+	public String apply(String inputString) {
+		return inputString.concat(" - output appended string");
+	}
 }

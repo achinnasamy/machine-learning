@@ -7,7 +7,7 @@ import java.io.IOException;
 import com.dmac.async.common.RabbitMQDataFlowException;
 import com.dmac.async.vo.IPROMessage;
 import com.dmac.async.vo.IPROParticipant;
-import com.sun.istack.internal.NotNull;
+import com.equator.common.constraints.annotations.NotNull;
 
 /**
 *

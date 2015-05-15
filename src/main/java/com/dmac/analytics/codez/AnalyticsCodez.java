@@ -6,7 +6,7 @@ package com.dmac.analytics.codez;
 /**
 *
 *
-* @author <a href="mailto:aravindh.chinnasamy@mobax.com">Aravindh Chinnasamy</a>
+* @author <a href="mailto:aravindh.chinnasamy@gmail.com">Aravindh Chinnasamy</a>
 * @version %I%, %G%
 * @since 1.0
 */
