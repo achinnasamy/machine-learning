@@ -29,6 +29,7 @@
                     <descriptorRef>jar-with-dependencies</descriptorRef>
                 </descriptorRefs>
 				<includes>
+                	<include>src/main/java</include>
                 	<include>src/test/java</include>
             	</includes>
             </configuration>
@@ -42,7 +43,22 @@
                 </execution>
             </executions>
         </plugin>
-                
+       
+       
+       <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.0.6.v20130930</version>
+                <configuration>
+                    <httpConnector>
+                        <port>1982</port>
+                        <host>localhost</host>
+                    </httpConnector>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                </configuration>
+       </plugin>
+            
+            
     </plugins>
   </build>
   
@@ -60,11 +76,12 @@
 	    <version>0.9</version>
     </dependency>
 	
+	  
 	<dependency>
 		<groupId>org.apache.spark</groupId>
 		<artifactId>spark-core_2.10</artifactId>
 		<version>1.3.1</version>
-	</dependency>
+	</dependency> 
 
 	<dependency>
 		<groupId>org.apache.storm</groupId>
@@ -73,11 +90,42 @@
 	</dependency>
 	  
 	<dependency>
+	    <groupId>org.apache.hadoop</groupId>
+	    <artifactId>hadoop-common</artifactId>
+	    <version>2.7.0</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>org.apache.hadoop</groupId>
+	    <artifactId>hadoop-mapreduce-client-core</artifactId>
+	    <version>2.7.0</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>org.apache.hadoop</groupId>
+	    <artifactId>hadoop-hdfs</artifactId>
+	    <version>2.7.0</version>
+	</dependency>
+
+ 
+	<dependency>
 		<groupId>org.apache.hbase</groupId>
 		<artifactId>hbase-client</artifactId>
 		<version>0.98.3-hadoop2</version>
 	</dependency>
 	
+	<dependency>
+		<groupId>com.wordnik</groupId>
+		<artifactId>swagger-core_2.10</artifactId>
+		<version>1.3.12</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>9.1-901-1.jdbc4</version>
+	</dependency>
+
 	
 	<dependency>
 		<groupId>org.apache.kafka</groupId>
@@ -121,7 +169,39 @@
 		<artifactId>guava</artifactId>
 		<version>17.0</version>
 	  </dependency>
+	  
+	  <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>4.1.6.RELEASE</version>
+	  </dependency>
+	
+	  <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.1.6.RELEASE</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.1.6.RELEASE</version>
+		</dependency>
+		
+	  <dependency>
+	  	<groupId>org.eclipse.jetty</groupId>
+	  	<artifactId>jetty-server</artifactId>
+	  	<version>9.2.10.v20150310</version>
+	  </dependency>
+
+
+	  <dependency>
+      	<groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-servlet</artifactId>
+        <version>9.2.10.v20150310</version>
+      </dependency>
+        
+		
 	  <dependency>
 	  	<groupId>com.dmac</groupId>
 	  	<artifactId>machine-learning-common</artifactId>
@@ -140,4 +220,13 @@
 
   </dependencies>
       
+  <repositories>
+       <repository>
+           <id>repo2_maven_org</id>
+           <url>http://repo2.maven.org/maven2</url>
+       </repository>
+       
+  </repositories>
+   
+   
 </project>

@@ -1,8 +1,6 @@
 package com.dmac.analytics.spark;
 
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaPairRDD;
-import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
 
@@ -13,14 +11,21 @@ public class SparkReadFile {
 	
 	public static void main(String[] args) {
 
-		SparkConf sparkConfig = new SparkConf().setAppName("ReadLogFile").setMaster("local[4]");
+		SparkConf sparkConfig = new SparkConf()
+						.setAppName("ReadLogFile")
+						.setMaster("local[5]");
+						//.setMaster("spark://SCHMAC-TESTER-4.local:7077");
 		
 		JavaSparkContext javaSparkContext = new JavaSparkContext(sparkConfig);
+
+		javaSparkContext.textFile("file:///Users/tester/input.txt")
+						.collect()
+						.forEach(z -> System.out.println(z));
+
 		
+		//javaSparkContext.textFile("file:///Users/tester/input.txt").cache().collect();
 		
-		JavaRDD<String> dataset = javaSparkContext.textFile("file:///Users/tester/spark/examples/server.log");
-		
-		dataset.foreach((z) -> System.out.println(z));
-		
+		javaSparkContext.close();
+	
 	}
 }

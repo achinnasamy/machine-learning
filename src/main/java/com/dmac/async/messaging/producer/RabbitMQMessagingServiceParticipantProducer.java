@@ -39,7 +39,7 @@ public class RabbitMQMessagingServiceParticipantProducer  extends AbstractRabbit
 			Map<String, Object> args = new HashMap<String, Object>();
 			args.put("x-expires", 600000);			
 			
-			channel.queueDeclare(queueName, durable, false, false, null);
+			channel.queueDeclare(queueName, durable, false, false, args);
 			
 		    
 		    byte[] bytes = new IPROMessageToByteEncoderFunction().encode(message);

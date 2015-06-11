@@ -7,9 +7,10 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.HTableInterface;
 import org.apache.hadoop.hbase.client.HTablePool;
-import org.apache.hadoop.hbase.HBaseConfiguration;
 
 import com.dmac.analytics.codez.BIGDATA_TABLE;
+
+
 
 /**
 * 
@@ -39,10 +40,10 @@ public final class HBaseConnectionFactory {
 	 * @param table
 	 * @return
 	 */
-	public HTableInterface createHTable(final BIGDATA_TABLE table) 
-	{
-		return (HTableInterface) this.tablePool.getTable(table.name());
-	}
+//	public HTableInterface createHTable(final BIGDATA_TABLE table) 
+//	{
+//		return (HTableInterface) this.tablePool.getTable(table.name());
+//	}
 	
 	
 	/**
