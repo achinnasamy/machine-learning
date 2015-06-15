@@ -2,9 +2,13 @@ package com.dmac.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
+
+import com.dmac.vector.GroupzDataVector;
 
 public class PGSQLConnectionFactory {
 
@@ -41,8 +45,8 @@ public class PGSQLConnectionFactory {
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/karthika", "postgres", "root");
-			Statement statement = connect.createStatement();
-			ResultSet rs  = statement.executeQuery("select name_of_warrior,hstore_to_json(attributes) from ponn where attributes->'state'='south_india'");
+			PreparedStatement ps = connect.prepareStatement("select name_of_warrior,hstore_to_json(attributes) from ponn where attributes->'state'='south_india'");
+			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
 				System.out.println(rs.getString(2));
@@ -55,5 +59,53 @@ public class PGSQLConnectionFactory {
 			e.printStackTrace();
 		}
          
+	}
+	
+	
+	
+	public void persistGroupzDataVector(GroupzDataVector gdv) {
+		
+		try {
+			Class.forName("org.postgresql.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/karthika", "postgres", "root");
+			PreparedStatement ps = connect.prepareStatement("select name_of_warrior,hstore_to_json(attributes) from ponn where attributes->'state'='south_india'");
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				System.out.println(rs.getString(2));
+			}
+				
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public Optional<GroupzDataVector> persistGroupzDataVector() {
+		
+		Optional<GroupzDataVector> gdv = Optional.empty();
+		
+		try {
+			Class.forName("org.postgresql.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:postgresql://localhost:5432/karthika", "postgres", "root");
+			PreparedStatement ps = connect.prepareStatement("select name_of_warrior,hstore_to_json(attributes) from ponn where attributes->'state'='south_india'");
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				System.out.println(rs.getString(2));
+			}
+				
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return gdv;
 	}
 }
