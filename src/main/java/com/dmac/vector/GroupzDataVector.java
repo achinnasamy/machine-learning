@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 public final class GroupzDataVector {
 
+	
 	private String				licenceKey		=	"";
 	
 	private String 				machineID		= 	"";

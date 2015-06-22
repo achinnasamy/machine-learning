@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body>
+
+<div ng-app="">
+
+<p>User Name: <input type="text" ng-model="login_username"></p>
+<p>Password: <input type="password" ng-model="login_password"></p>
+<p><input type="submit" value="Login" ng-model="login_button"></p>
+<p><input type="submit" value="Logout" ng-model="logout_button"></p>
+
+<p ng-bind="login_username"></p>
+<p ng-bind="login_password"></p>
+
+</div>
+
+</body>
+</html>
