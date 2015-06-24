@@ -1,13 +1,10 @@
-/**
- * Copyright (c) 2014 iPro,Inc. and its affiliates. All rights reserved.
- */
 package com.dmac.analytics.hbase;
 
 /**
 *
 *  HBASE Table Creation - Exception
 * 
-* @author <a href="mailto:aravindh.chinnasamy@mobax.com">Aravindh Chinnasamy</a>
+* @author <a href="mailto:aravindh.chinnasamy@gmail.com">Aravindh Chinnasamy</a>
 * @version %I%, %G%
 * @since 1.0
 */

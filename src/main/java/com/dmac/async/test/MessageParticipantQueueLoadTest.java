@@ -15,7 +15,7 @@ import com.google.common.base.Stopwatch;
 /**
 *
 *
-* @author <a href="mailto:aravindh.chinnasamy@mobax.com">Aravindh Chinnasamy</a>
+* @author <a href="mailto:aravindh.chinnasamy@gmail.com">Aravindh Chinnasamy</a>
 * @version %I%, %G%
 * @since 1.0
 */
@@ -38,7 +38,6 @@ public class MessageParticipantQueueLoadTest {
 		
 		for (int i = 1 ; i <= TOTAL_NUMBER_OF_QUEUES_TO_BE_CREATED; i++) 
 		{
-			
 			
 			String groupName 				= String.format("GROUP_%s", i);
 			String participantName 			= String.format("PARTICIPANT_%s", i);
