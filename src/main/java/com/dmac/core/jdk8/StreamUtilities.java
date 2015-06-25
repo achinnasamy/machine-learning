@@ -55,7 +55,7 @@ public class StreamUtilities {
 	
 	
 	public void useStringJoinMethod() {
-		String joinedString = String.join(":", "SivaKumar", "Karthika", "Shanthi");
+		String joinedString = String.join(":", "Alan", "Karthika", "Shanthi");
 		System.out.println(joinedString);
 	}
 	

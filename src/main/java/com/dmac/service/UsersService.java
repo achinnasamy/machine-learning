@@ -13,9 +13,10 @@ import com.dmac.core.Codez;
 import com.dmac.entity.user.Users;
 import com.equator.common.constraints.Conditions;
 
-@Service("UsersService")
+@Service
 public class UsersService {
 
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
@@ -39,7 +40,7 @@ public class UsersService {
 		Conditions.checkNotEmptyString(username);
 		
 		Users user = (Users) entityManager
-							 	.createQuery("SELECT user FROM USERS user where user.username = :value")
+							 	.createQuery("SELECT user FROM Users user where user.username = :value", Users.class)
 					 			.setParameter("value", username)
 					 			.getSingleResult();
 		

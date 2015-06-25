@@ -3,8 +3,9 @@ package com.dmac.core;
 public enum Codez {
 
 	NO_VALUE					("NO_VALUE"),
-	EMPTY_STRING				("");	
-	
+	EMPTY_STRING				(""),
+	SUCCESS						("SUCCESS"),
+	FAILURE						("FAILURE");
 	
 	private String name;
 	
