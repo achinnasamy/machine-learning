@@ -13,7 +13,7 @@ public class IPROAnalyticsUser {
 	private String noOfChips					= 	"";
 	
 	/**
-	 * What type of user he is. Whether he is from facebook, ipro, google.
+	 * What type of user he is. Whether he is from facebook, google.
 	 */
 	private String typeOfUserID					=	"";
 	private String userID						=	"";

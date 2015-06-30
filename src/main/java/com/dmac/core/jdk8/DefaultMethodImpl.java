@@ -18,6 +18,7 @@ public class DefaultMethodImpl implements DefaultMethod {
 		
 		defaultMethodObject.iamADefaultMethod();
 		
+		
 		System.out.println(defaultMethodObject.defaultMethodWithAReturn("parameters_passed"));
 
 	}

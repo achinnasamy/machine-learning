@@ -36,7 +36,7 @@ public class ParallelExecutor {
 		
 		List<String> outList = ParallelExecutor.transform(listOfStrings, new StringAppenderFunction());
 		
-		outList.forEach((z) -> System.out.println(z));
+		outList.forEach((myValues) -> System.out.println(myValues));
 	}
 	
 	 public static <X, Y> List<Y> transform (@NotNull final List<X> inputList,

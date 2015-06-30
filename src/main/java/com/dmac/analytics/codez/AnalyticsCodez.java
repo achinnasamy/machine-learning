@@ -1,6 +1,4 @@
-/**
- * Copyright (c) 2014 iPro,Inc. and its affiliates. All rights reserved.
- */
+
 package com.dmac.analytics.codez;
 
 /**
