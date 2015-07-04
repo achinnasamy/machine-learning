@@ -29,15 +29,30 @@ public class CommonFileUploadServlet extends HttpServlet {
 		throws ServletException, IOException {
 		
 		for (Part part : request.getParts()) {
-            String fileName = "/Users/tester/myfile.csv";
-            part.write("/Users/tester/del/" + File.separator + fileName);
+			
+			String fileName = extractFileName(part);
+			part.write("/Users/tester/dojo/" + File.separator + fileName);
+			
         }
 		
 		System.out.println("\n\n\n File Uploaded Successfully \n\n\n");
-		
-	}
+		response.sendRedirect("http://localhost:8080/dmac-machine-learning-1.0-SNAPSHOT/dashboard/pages/projects.html");
+	}	
 	
-	
-	
+	/**
+	 *  
+	 * @param part
+	 * @return Filename
+	 */
+	private static String extractFileName(Part part) {
+	        String contentDisp = part.getHeader("content-disposition");
+	        String[] items = contentDisp.split(";");
+	        for (String s : items) {
+	            if (s.trim().startsWith("filename")) {
+	                return s.substring(s.indexOf("=") + 2, s.length()-1);
+	            }
+	        }
+	        return "";
+	 }
 
 }

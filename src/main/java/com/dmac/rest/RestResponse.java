@@ -10,6 +10,7 @@ import java.util.Map;
  */
 public class RestResponse {
 
+	
 	private String 					key 				=	"key";
 	
 	private String					value				=	"value";
