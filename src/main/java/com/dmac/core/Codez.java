@@ -4,6 +4,7 @@ public enum Codez {
 
 	NO_VALUE					("NO_VALUE"),
 	EMPTY_STRING				(""),
+	INFERNEON_APP_NAME			("Inferneon"),
 	SUCCESS						("SUCCESS"),
 	FAILURE						("FAILURE");
 	

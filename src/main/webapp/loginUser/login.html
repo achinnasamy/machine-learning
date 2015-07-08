@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Inferneon</title>
     
-    
+    <script src="../jquery214/jquery-2.1.4.min.js"></script>
+	<script src="../js/controller/login_controller.js"></script>
+	
     <link rel="stylesheet" href="css/reset.css">
 
     <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
@@ -28,10 +30,10 @@
   </div>
   <div class='login'>
     <h2>Welcome to Inferneon</h2>
-    <form action="http://localhost:8080/dmac-machine-learning-1.0-SNAPSHOT/dashboard/dashboard.html">
-      <input placeholder='Username' type='text'>
-      <input placeholder='Password' type='password'>
-      <button>Login</button>
+    <form id="loginForm">
+      <input placeholder='Username' type='text' name="userName">
+      <input placeholder='Password' type='password' name="password">
+      <button id="loginButton">Login</button>
     </form>
   </div>
   <div class='register'>
@@ -40,7 +42,7 @@
       <div class='fa fa-times-circle'></div>
       There seems to be an issue.
     </div>
-    <form >
+    <form>
       <input placeholder='Username' type='text'>
       <input placeholder='Password' type='password'>
       <input placeholder='Confirm Password' type='password'>

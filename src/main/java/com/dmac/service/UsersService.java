@@ -15,7 +15,6 @@ import com.equator.common.constraints.Conditions;
 
 @Service
 public class UsersService {
-
 	
 	@PersistenceContext
 	private EntityManager entityManager;

@@ -14,5 +14,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/machine-learning-common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/dmac-spark"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

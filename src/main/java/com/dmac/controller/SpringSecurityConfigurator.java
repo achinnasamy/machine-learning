@@ -10,9 +10,21 @@
 //@Configuration
 //@EnableWebSecurity
 //public class SpringSecurityConfigurator extends WebSecurityConfigurerAdapter {
+//	
+//	
+//	
+//	@Override
+//	protected void configure(AuthenticationManagerBuilder auth)
+//			throws Exception {
+//		// TODO Auto-generated method stub
+//		auth.inMemoryAuthentication().withUser("mkyong").password("123456").roles("USER");
+//		auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
+//		auth.inMemoryAuthentication().withUser("dba").password("123456").roles("DBA");
+//	}
 //
 //	@Autowired
 //	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//		
 //		auth.inMemoryAuthentication().withUser("mkyong").password("123456").roles("USER");
 //		auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
 //		auth.inMemoryAuthentication().withUser("dba").password("123456").roles("DBA");
@@ -21,6 +33,17 @@
 //	@Override
 //	protected void configure(HttpSecurity http) throws Exception {
 //
+//		
+//		http.authorizeRequests().antMatchers("/dashboard/**")
+//				.access("hasRole('ROLE_USER')").and().formLogin()
+//				.loginPage("/loginUser/login.html").failureUrl("/loginUser/login.html?error")
+//				.usernameParameter("username")
+//				.passwordParameter("password")
+//				.and().logout().logoutSuccessUrl("/loginUser/login.html?logout")
+//				.and().csrf()
+//				.and().exceptionHandling().accessDeniedPage("/loginUser/accessDenied.html");
+//		
+//		
 //		/*
 //		http
 //	    .authorizeRequests()

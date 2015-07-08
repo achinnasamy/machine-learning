@@ -7,17 +7,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.FileSystems;
-import java.nio.file.FileVisitOption;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringJoiner;
-import java.net.URI;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hdfs.DFSClient;
@@ -28,8 +24,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dmac.rest.RestResponse;
-
-import java.net.URI;
 
 @RestController
 public class FileManagerResource {
@@ -90,24 +84,21 @@ public class FileManagerResource {
 	 * @param directoryName
 	 * @return
 	 */
-	@RequestMapping(value="/readFilesFromFileSystem", method = RequestMethod.GET)
+	@RequestMapping(value="/readOneFileFromFileSystem", method = RequestMethod.GET)
 	@ResponseBody
 	public RestResponse readFilesFromFileSystem(
 				@RequestParam (value="directoryName", required=true) String directoryName)
 	{
 		
-		System.out.println("\n\n\n directoryName");
+		
 		
 		RestResponse restResponse = new RestResponse();
-		restResponse.setErrorCode("0");
-		restResponse.setErrorDescription("SOME_ERROR_OCCURED");
 		
 		Map<String, String> restMap = new HashMap<String, String>();
-		
-        StringJoiner listOfFiles = new StringJoiner(":");
         
 		Path path = FileSystems.getDefault().getPath("/Users/tester/dojo");
 		
+		System.out.println("\n\n\n Read Files from Directory - " + path.getFileName().toString()) ;
 		
 		try {
 			Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
@@ -116,8 +107,8 @@ public class FileManagerResource {
 				public FileVisitResult visitFile(Path file,
 						BasicFileAttributes attrs) throws IOException {
 					
-					listOfFiles.add(file.getFileName().toString());
-					
+					restMap.put("file", file.getFileName().toString());
+					restMap.put("lastModifiedTime", attrs.lastModifiedTime().toString());
 					
 					return FileVisitResult.CONTINUE;
 				}
@@ -128,7 +119,6 @@ public class FileManagerResource {
 			e.printStackTrace();
 		}
 		
-		restMap.put("files", listOfFiles.toString());
 		restResponse.setResponseMap(restMap);
 		return restResponse;
 	}
