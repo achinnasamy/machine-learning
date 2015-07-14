@@ -7,8 +7,10 @@
 body {
     background-color: #f8f8f8;
 }
-label {
+div label {
     display: block;
+    vertical-align: middle;
+    width: 125px;
 }
 #wrapper {
     width: 100%;
