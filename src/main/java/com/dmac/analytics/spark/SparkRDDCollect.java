@@ -9,6 +9,8 @@ public class SparkRDDCollect {
 
 	public static void main(String args[]) {
 
+		// local - runs the spark locally
+		// local[5] - runs the spark locally with 5 threads
 		SparkConf sparkConfig = new SparkConf()
 						.setAppName("ReadLogFile")
 						.setMaster("local[5]");
@@ -18,12 +20,15 @@ public class SparkRDDCollect {
 
 		JavaRDD<String> rdd = javaSparkContext.textFile("file:///Users/tester/ac/entitlement_view.csv");
 		
-		rdd.persist(StorageLevel.MEMORY_ONLY());
+		rdd.cache();
+		JavaRDD<String> persistedRDD = rdd.persist(StorageLevel.MEMORY_ONLY());
 		rdd.collect().forEach(z -> System.out.println(z));
-		rdd.unpersist();
+		persistedRDD.unpersist();
 		
 		//javaSparkContext.textFile("file:///Users/tester/input.txt").cache().collect();
 		
+		// To 
+		//javaSparkContext.stop();
 		javaSparkContext.close();
 	}
 }
