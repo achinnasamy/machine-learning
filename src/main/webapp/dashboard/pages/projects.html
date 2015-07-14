@@ -122,7 +122,7 @@
                                         <div class="modal-body">
                                 
                                             	<label>Machine Learn Me</label>
-	                                            <select class="form-control">
+	                                           <!--  <select class="form-control">
 	                                                <option>Decision Tree</option>
 	                                                <option>Bayesian Classification</option>
 	                                                <option>Linear Regression</option>
@@ -138,9 +138,38 @@
                                        			<div class="form-group input-group">
 		                                            <span class="input-group-addon">aravindh</span>
 		                                            <input type="text" class="form-control" placeholder="0.02">
-                                       			</div>
-                                        
-                                        </div>
+                                       			</div> -->
+												
+												<select name="criteria_title" id="chosen_a"
+													data-placeholder="Select Type"
+													class="form-control">
+													<option value=""></option>
+													<option value="1" data-id="0.01">Decision Tree</option>
+													<option value="2" data-id="0.02">Bayesian Classification</option>
+													<option value="3" data-id="0.03">Linear Regression</option>
+													<option value="4" data-id="0.04">Support Vector Machines</option>
+												</select>
+												<br>
+														
+												<div class=" control-group formSep template">
+													<label id="label1" for="1">Default Value&emsp;<input
+														type="text" id="1" />
+													</label> 
+													<label id="label2" for="2">Value
+														2&emsp;<input type="text" id="2" />
+													</label> 
+													<label id="label3" for="3">Value
+														3&emsp;<input type="text" id="3" />
+													</label> 
+													<label id="label4" for="4">Value
+														4&emsp;<input type="text" id="4" />
+													</label>
+													<strong>Prune Tree</strong></strong>
+													<input type="radio" id="postageyes" name="postage" value="Yes" /> Yes
+													<input type="radio" id="postageno" name="postage" value="No" /> No
+													</div>
+												</div>
+							
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             <button type="button" class="btn btn-primary">Ok</button>
@@ -150,7 +179,42 @@
                                 </div>
                                 <!-- /.modal-dialog -->
     </div>
-                            
+    
+     <script>
+    $('#chosen_a').change(function(){
+        var criteria_id =  $(':selected',this).data('id');
+      $('#1').val(criteria_id);
+  });
+    </script>
+<script>
+$(function() {
+    //This hides all initial textboxes
+     $('label').hide();
+    $('#chosen_a').change(function() {
+        //This saves some time by caching the jquery value
+        var val = $(this).val();
+        //this hides any boxes that the previous selection might have left open
+        $('label').hide();
+        //This just opens the ones we want based off the selection
+        switch (val){
+            case '1':
+            case '4':
+            case 'other':
+                $('#label1').show();
+                break;
+            case '2':
+                $('#label1').show();
+                $('#label2').show();
+                $('#label3').show();
+                break;
+            case '3':
+                $('#label1').show();
+                $('#label2').show();
+                break;        }
+    });
+});
+</script>                            
 </body>
+
 
 </html>
