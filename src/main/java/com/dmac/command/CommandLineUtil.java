@@ -47,7 +47,7 @@ public final class CommandLineUtil {
 	
 	public static void main(String args[]) {
 		try {
-			CommandLineUtil.runCommand("ls -lh /Users/tester/dojo/").forEach((z -> System.out.println(z)));
+			CommandLineUtil.runCommand("ls -lh /Users/tester").forEach((z -> System.out.println(z)));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
