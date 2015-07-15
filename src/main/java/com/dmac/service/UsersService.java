@@ -28,6 +28,11 @@ public class UsersService {
 		return results;
 	}
 	
+	@Transactional
+	public String fetchUserID(String username) {
+		return "1001";
+	}
+	
 	/**
 	 * 
 	 * @return Password

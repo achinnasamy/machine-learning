@@ -42,32 +42,24 @@ PRIMARY KEY (`ID`)
 
 
 
-CREATE TABLE IF NOT EXISTS `analysis` (
-	
-	id int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `analysis` (id int(10) NOT NULL AUTO_INCREMENT,
 	project_id int(10) NOT NULL,
-	time_of_analysis date(255) NOT NULL,
-	analysis_name varchar(255) NOT NULL,
-	analysis_result varchar(255) NOT NULL,
-
-	PRIMARY KEY (`ID`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+	time_of_analysis date DEFAULT NULL,
+	analysis_name varchar(255) DEFAULT NULL,
+	analysis_result varchar(255) DEFAULT NULL,
+	
+	PRIMARY KEY (`ID`)) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
 
-CREATE TABLE IF NOT EXISTS `project` (
-
-	id int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `projects` (id int(10) NOT NULL AUTO_INCREMENT,
 	project_name varchar(255) NOT NULL,
-	user_id int(10) NOT NULL;
+	user_id int(10) NOT NULL,
 	created_at date DEFAULT NULL,
 	updated_at date DEFAULT NULL,
 	project_schema varchar(255) NOT NULL,
 
-	PRIMARY KEY (`ID`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+	PRIMARY KEY (`ID`)) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
 
