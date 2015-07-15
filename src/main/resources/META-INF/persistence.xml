@@ -4,7 +4,7 @@
 <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 	<class>com.dmac.entity.user.Users</class>
-
+	<class>com.dmac.entity.Projects</class>
 
 	<properties>
 		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>

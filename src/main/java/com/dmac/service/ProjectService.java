@@ -1,5 +1,8 @@
 package com.dmac.service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -44,10 +47,19 @@ public class ProjectService {
 		Objects.requireNonNull(userID, "userName null in persistProject() of ProjectService component");
 		Objects.requireNonNull(projectSchema, "projectSchema null in persistProject() of ProjectService component");
 		
+		
+		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		java.sql.Date createdAt = new java.sql.Date(date.getTime());
+		
+		
 		Projects projects = new Projects();
 		projects.setProjectName(projectName);
 		projects.setUserID(userID);
 		projects.setProjectSchema(projectSchema);
+		projects.setCreatedAt(createdAt);
+		projects.setUpdatedAt(createdAt);
+		
 		entityManager.persist(projects);
 		
 		return true;
