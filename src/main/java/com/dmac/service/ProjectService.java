@@ -1,7 +1,5 @@
 package com.dmac.service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -31,12 +29,12 @@ public class ProjectService {
 		 
 		
 		String userID = usersService.fetchUserID(userName);
+		int userIDInt = Integer.parseInt(userID);
 		
-		/*
-		List<Projects> listOfProjects = entityManager.createQuery("select projects from Projects where user_id=:value", Projects.class)
-													 .setParameter("value", userID)
-													 .getResultList();*/
-		return null;
+		List<Projects> listOfProjects = entityManager.createQuery("select projects from Projects projects where userID=:value", Projects.class)
+													 .setParameter("value", userIDInt)
+													 .getResultList();
+		return listOfProjects;
 	}
 	
 	

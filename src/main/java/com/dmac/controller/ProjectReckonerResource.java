@@ -80,6 +80,7 @@ public class ProjectReckonerResource {
 	{
 		
 		List<Projects> listOfProjects = projectService.fetchAllProjects(userName);
+		
 		RestResponse restResponse = new RestResponse();
 		
 		if (listOfProjects == null) {			
@@ -87,8 +88,13 @@ public class ProjectReckonerResource {
 			restResponse.setValue("failure");
 		}
 		else {
+			
+			Map<String, String> responseMap = new HashMap<String, String>();			
+			listOfProjects.forEach(z -> responseMap.put(z.getProjectName(), z.getProjectName()));
+			
 			restResponse.setKey("projectRetrieval");
 			restResponse.setValue("success");
+			restResponse.setResponseMap(responseMap);
 		}
 		return restResponse;
 	}
