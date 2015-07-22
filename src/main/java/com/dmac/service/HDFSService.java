@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.PrivilegedExceptionAction;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +20,7 @@ import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.security.UserGroupInformation;
 import org.apache.hadoop.util.Progressable;
 import org.springframework.stereotype.Service;
 
@@ -103,8 +105,8 @@ public class HDFSService {
 		
 		
 		
-		Configuration configuration = new Configuration();
-		configuration.set("hadoop.job.ugi", "ubuntu");
+		Configuration conf = new Configuration();
+		conf.set("hadoop.job.ugi", "ubuntu");
 		 
 		System.out.println("ssss");
 		BufferedReader inputStream =null ;
@@ -116,7 +118,7 @@ public class HDFSService {
 			e1.printStackTrace();
 		}
 		
-			FileSystem hdfs = FileSystem.get( new URI( HDFS_PATH ), configuration );
+			FileSystem hdfs = FileSystem.get( new URI( HDFS_PATH ), conf );
 			Path file = new Path("/chinnasamy/myfile2.txt");
 			
 			//if ( hdfs.exists( file )) 
@@ -154,6 +156,11 @@ public class HDFSService {
 		System.setProperty("HADOOP_USER_NAME", "ubuntu");  
 		
 		try {
+			
+//			UserGroupInformation ugi = 
+//                    UserGroupInformation.createProxyUser("ubuntu", UserGroupInformation.getLoginUser());
+//			
+			//System.out.println(UserGroupInformation.getLoginUser().getGroupNames().length);
 			//new HDFSService().createHDFSDirectory("hi");
 			//new HDFSService().listFilesFromHDFSDirectory("");
 			new HDFSService().uploadFileToHDFS("", "");
