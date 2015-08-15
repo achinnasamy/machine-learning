@@ -19,6 +19,10 @@ public class MethodReferences {
 										.collect(Collectors.toList());
 		
 		namesUsingMethodReferences.forEach(z -> System.out.println(z));
+
+		
+		latLongList.forEach(LatLong::printData);
+		
 	}
 
 }

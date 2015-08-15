@@ -9,7 +9,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.security.PrivilegedExceptionAction;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,15 +19,14 @@ import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.security.UserGroupInformation;
-import org.apache.hadoop.util.Progressable;
 import org.springframework.stereotype.Service;
 
 @Service
 public class HDFSService {
 
 	
-	private static String HDFS_PATH = "hdfs://ec2-52-24-58-38.us-west-2.compute.amazonaws.com:9000";
+	//private static String HDFS_PATH = "hdfs://ec2-52-24-58-38.us-west-2.compute.amazonaws.com:9000";
+	private static String HDFS_PATH = "hdfs://localhost:9000";
 		
 	private Configuration configuration = new Configuration();
 	
@@ -105,55 +103,42 @@ public class HDFSService {
 		
 		
 		
-		Configuration conf = new Configuration();
-		conf.set("hadoop.job.ugi", "ubuntu");
-		 
-		System.out.println("ssss");
-		BufferedReader inputStream =null ;
-		
-		try {
-			 inputStream = new BufferedReader(new FileReader("/Users/tester/myfile.csv"));
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+			Configuration conf = new Configuration();
+			 
+			BufferedReader inputStream =null ;
+			
+			try {
+				 inputStream = new BufferedReader(new FileReader("/Users/tester/myfile.csv"));
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
 		
 			FileSystem hdfs = FileSystem.get( new URI( HDFS_PATH ), conf );
-			Path file = new Path("/chinnasamy/myfile2.txt");
-			
-			//if ( hdfs.exists( file )) 
-			//{ hdfs.delete( file, true ); } 
+			Path file = new Path("/data/destination_file.csv");
 			
 			
-			OutputStream os = hdfs.create( file,
-				    new Progressable() {
-						
-						@Override
-						public void progress() {
-							
-							
-						}
-					});
+			OutputStream os = hdfs.create( file);
 			
-				BufferedWriter br = new BufferedWriter( new OutputStreamWriter( os, "UTF-8" ) );
+			BufferedWriter br = new BufferedWriter( new OutputStreamWriter( os, "UTF-8" ) );
 			
-				String line = null;
-			    while ((line = inputStream.readLine()) != null) {
+			String line = null;
+			
+			while ((line = inputStream.readLine()) != null) {
 			    	br.write(line);
-			    }
+			}
 		    
 				
-				br.close();
-				hdfs.close();
+			br.close();
+			hdfs.close();
 				
 
-		return true;
+			return true;
 	}
 
 	
 	public static void main(String args[]) {
 		
-		System.setProperty("HADOOP_USER_NAME", "ubuntu");  
+		System.setProperty("HADOOP_USER_NAME", "tester");  
 		
 		try {
 			

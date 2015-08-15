@@ -15,5 +15,6 @@
 	</classpathentry>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/machine-learning-common"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/dmac-spark"/>
+	<classpathentry kind="lib" path="/Users/tester/whitetiger/hadoop271/etc/hadoop"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

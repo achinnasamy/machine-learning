@@ -213,6 +213,18 @@
     	<version>4.3.3.Final</version>
   	  </dependency>
  
+ 	  <dependency>
+		<groupId>org.apache.pig</groupId>
+		<artifactId>pig</artifactId>
+		<version>0.15.0</version>
+	  </dependency>
+ 	  
+ 	  <dependency>
+        <groupId>jline</groupId>
+        <artifactId>jline</artifactId>
+        <version>0.9.94</version>
+    </dependency> 
+    
 	  <dependency>
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-entitymanager</artifactId>

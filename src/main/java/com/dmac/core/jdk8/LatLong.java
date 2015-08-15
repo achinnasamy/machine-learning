@@ -17,6 +17,9 @@ public class LatLong implements Serializable{
 	
 	private String name = "";
 
+	public LatLong() {
+		
+	}
 	public LatLong(String _id, String _latitude, String _longitude, String _name) {
 		this.id = _id;
 		this.latitude = _latitude;
@@ -56,5 +59,7 @@ public class LatLong implements Serializable{
 		this.name = name;
 	}
 	
-	
+	public void printData() {
+		System.out.println(this.latitude + " " + this.longitude);
+	}
 }

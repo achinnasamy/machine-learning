@@ -17,6 +17,7 @@ import java.util.Map;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hdfs.DFSClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dmac.rest.RestResponse;
+import com.dmac.service.HDFSService;
 
 @RestController
 public class FileManagerResource {
@@ -31,6 +33,8 @@ public class FileManagerResource {
 	
 	private static String hdfsUrl = "<your hdfs NameNode endpoint>";
 	
+	@Autowired
+	public HDFSService hdfsService;
 	
 	@RequestMapping(value="/uploadFileToHDFS", method = RequestMethod.GET)
 	@ResponseBody
@@ -38,6 +42,9 @@ public class FileManagerResource {
 				@RequestParam (value="fileName", required=true) String fileName)
 	{
 		
+
+		
+		/*
 		Configuration conf = new Configuration();
         conf.set("fs.defaultFS", this.hdfsUrl);
         //DFSClient client = new DFSClient(new URI(this.hdfsUrl), conf);
@@ -71,7 +78,7 @@ public class FileManagerResource {
         }
         catch (IOException exception) {
         	
-        }
+        }*/
 		
 		
 		RestResponse restResponse = new RestResponse();

@@ -17,7 +17,7 @@ public class GreatOptional {
 		//Optional<SomeDataObject> sdo = Optional.empty();
 				
 		
-		sdo.ifPresent(dff->System.out.println(dff.getDataMember()));
+		sdo.ifPresent(param->System.out.println(param.getDataMember()));
 
 		
 		
