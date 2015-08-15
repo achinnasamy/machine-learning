@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Inferneon-Dashboard</title>
-
+	
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -35,6 +35,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="../../jquery214/jquery-2.1.4.min.js"></script>
+    <script src="../../js/controller/createProjectController.js"></script>
+    <script src="C:\ipsg\code\machine-learning\src\main\webapp\js\controller\createProjectController.js"></script>
 
 </head>
 
@@ -349,7 +352,8 @@
                                             <h4 class="modal-title" id="myModalLabel">Project details</h4>
                                         </div>
                                         <div class="modal-body">
-                                        Project Name <input type="text" name="projectName"><br> <br>
+                                        
+                                        <!-- <input type="text" name="projectName"><br> <br> -->
                                         <input id="btnAdd" type="button" value="Add Numeric" />
                                         <input id="btn2Add" type="button" value="Add Nominal" />
 										<br />
@@ -359,17 +363,23 @@
 										</div>
 										<br />
 										<input id="btnGet" type="button" value="Get Values" />
-                                        </div>
+                                        
                                         <div class="modal-footer">
+                                        <form id="projectForm">
+                                        	<input placeholder='Project Name' type='text' name="projectName">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save</button>
+                                            <button type="button" id="Save" onclick="javascript: $.getScript('../../js/controller/createProjectController.js' , function (){ createProject() ; } );"  class="btn btn-primary">Save</button>
+                                            </form>
+                                        </div>
+                                        
                                         </div>
                                     </div>
                                     <!-- /.modal-content -->
                                 </div>
                                 <!-- /.modal-dialog -->
                             </div>
-                            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                            
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
 $(function () {
     $("#btnAdd").bind("click", function () {
@@ -395,11 +405,11 @@ $(function () {
 });
 function GetDynamicTextBox(value) {
     return '<input name = "DynamicTextBox" type="text" value = "' + value + '" />&nbsp;' +
-    '<input type="button" value="Remove" class="remove" />'
+    '<input type="button" value="x" class="remove" />'
 }
 function GetDynamicButton(value) {
     return  '<input name = "DynamicTextBox" type="text" value = "' + value + '" />&nbsp;' + '<input name = "DynamicTextBox" type="text" value = "' + value + '" />&nbsp;' +
-    '<input type="button" value="Remove" class="remove" />'
+    '<input type="button" value="x" class="remove" />'
 }
 </script>
                             
